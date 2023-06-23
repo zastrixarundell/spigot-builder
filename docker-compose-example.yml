@@ -1,0 +1,38 @@
+version: '3'
+
+volumes:
+  build_1_20:
+  build_1_15_2:
+  build_1_11_1:
+
+services:
+  '1.20':
+    build: 
+      context: .
+      dockerfile: Dockerfile17
+    environment:
+      VERSION: '1.20'
+    volumes:
+      - build_1_20:/build:Z
+      - ./release:/release:z
+    restart: on-failure
+  '1.15.2':
+    build: 
+      context: .
+      dockerfile: Dockerfile11
+    environment:
+      VERSION: '1.15.2'
+    volumes:
+      - build_1_15_2:/build:Z
+      - ./release:/release:z
+    restart: on-failure
+  '1.11.1':
+    build: 
+      context: .
+      dockerfile: Dockerfile8
+    environment:
+      VERSION: '1.11.1'
+    volumes:
+      - build_1_11_1:/build:Z
+      - ./release:/release:z
+    restart: on-failure

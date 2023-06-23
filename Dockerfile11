@@ -1,0 +1,13 @@
+FROM alpine:latest
+
+RUN apk --no-cache add curl git openjdk11-jre-headless
+
+WORKDIR /setup
+
+COPY build.sh .
+
+RUN chmod +x build.sh
+
+WORKDIR /build
+
+CMD ["/bin/sh", "/setup/build.sh"]
