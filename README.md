@@ -3,7 +3,7 @@
 Containerized builder for SpigotMC.
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/zastrix/spigot-builder?logo=docker)
-](https://hub.docker.com/repository/docker/zastrix/spigot-builder/general)
+](https://hub.docker.com/r/zastrix/spigot-builder)
 
 ## Summary
 
