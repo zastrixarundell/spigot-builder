@@ -62,10 +62,35 @@ services:
     restart: on-failure
 ```
 
+With the result of:
+
+```yml
+$ tree .
+.
+├── build.sh
+├── docker-compose-example.yml
+├── docker-compose.yml
+├── Dockerfile16
+├── Dockerfile17
+├── Dockerfile8
+├── README.md
+└── release
+    ├── spigot-1.11.2.jar
+    ├── spigot-1.17.1.jar
+    └── spigot-1.20.1.jar
+
+2 directories, 10 files
+```
+
+
+*Note: The `1.11.2` is actually effectively `1.11.1`.*
+
 ### CLI
 
-To build spigot `1.11.1` with a single command and no cache you would need to run:
+To build spigot `1.17.1` with a single command and no cache you would need to run:
 
 ```bash
-docker run -v ./release:/release:z -e VERSION='1.11.1' --name spigot-builder-1.11.1 zastrix/spigot-builder:openjdk-8-alpine
+docker run -v ./release:/release:z -e VERSION='1.17.1' --name spigot-builder-1.11.1 zastrix/spigot-builder:openjdk-16-alpine
 ```
+
+And in the release folder the file should exist: `./release/spigot-1.17.1.jar`.
