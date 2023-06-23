@@ -37,7 +37,7 @@ volumes:
 
 services:
   '1.20':
-    image: zastrx/spigot-build:openjdk-17-alpine
+    image: zastrix/spigot-builder:openjdk-17-alpine
     environment:
       VERSION: '1.20'
     volumes:
@@ -45,7 +45,7 @@ services:
       - ./release:/release:z
     restart: on-failure
   '1.17.1':
-    image: zastrx/spigot-build:openjdk-16-alpine
+    image: zastrix/spigot-builder:openjdk-16-alpine
     environment:
       VERSION: '1.17.1'
     volumes:
@@ -53,7 +53,7 @@ services:
       - ./release:/release:z
     restart: on-failure
   '1.11.1':
-    image: zastrx/spigot-build:openjdk-8-alpine
+    image: zastrix/spigot-builder:openjdk-8-alpine
     environment:
       VERSION: '1.11.1'
     volumes:
