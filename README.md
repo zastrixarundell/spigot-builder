@@ -2,6 +2,9 @@
 
 Containerized builder for SpigotMC.
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/zastrix/spigot-builder?logo=docker)
+](https://hub.docker.com/repository/docker/zastrix/spigot-builder/general)
+
 ## Summary
 
 This is a container which, during runtime, downloads the BuildTools.jar file to the latest version and builds the specified version of spigot. Due to the different requirements of the JRE for specific version the appropriate image needs to be set.
