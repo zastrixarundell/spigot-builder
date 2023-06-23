@@ -29,6 +29,7 @@ version: '3'
 
 volumes:
   build_1_20:
+  build_1_17_1:
   build_1_11_1:
 
 services:
@@ -38,6 +39,14 @@ services:
       VERSION: '1.20'
     volumes:
       - build_1_20:/build:Z
+      - ./release:/release:z
+    restart: on-failure
+  '1.17.1':
+    image: zastrx/spigot-build:openjdk-16-alpine
+    environment:
+      VERSION: '1.17.1'
+    volumes:
+      - build_1_17_1:/build:Z
       - ./release:/release:z
     restart: on-failure
   '1.11.1':

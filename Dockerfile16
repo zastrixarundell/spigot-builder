@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk --no-cache add curl git openjdk11-jre-headless
+RUN apk --no-cache add curl git openjdk16-jre-headless
 
 WORKDIR /setup
 
