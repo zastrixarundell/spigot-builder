@@ -1,0 +1,90 @@
+name: Docker Hub CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-openjdk-8:
+    runs-on: ubuntu-latest
+    name: 'Build for OpenJDK 8'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push container for OpenJDK 8
+        uses: docker/build-push-action@v4
+        with:
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: zastrix/spigot-builder:openjdk-8-alpine
+          file: Dockerfile8
+
+  build-openjdk-16:
+    runs-on: ubuntu-latest
+    name: 'Build for OpenJDK 16'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push container for OpenJDK 16
+        uses: docker/build-push-action@v4
+        with:
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: zastrix/spigot-builder:openjdk-16-alpine
+          file: Dockerfile16
+
+  build-openjdk-17:
+    runs-on: ubuntu-latest
+    name: 'Build for OpenJDK 17'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push container for OpenJDK 17
+        uses: docker/build-push-action@v4
+        with:
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: zastrix/spigot-builder:openjdk-17-alpine
+          file: Dockerfile17
